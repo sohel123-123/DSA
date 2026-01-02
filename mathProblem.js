@@ -46,7 +46,7 @@
 // }
 
 // check for amstrong number
-// 123 = if 1*1*1 + 2*2*2 + 3*3*3 = 123 it is palindrome
+// 123 = if 1*1*1 + 2*2*2 + 3*3*3 = 123 it is amstrong number
 
 
 // let n = 123;
@@ -64,41 +64,103 @@
 //     console.log(false)
 // }
 
-var reverse = function(x) {
-    let ReverseNumber = 0;
-    const INT_MAX = 2**31 - 1; 
-    const INT_MIN = -(2**31);
-    if (x>0) {
-        while(x>0) {
-    let lastDigit = x%10;
-    ReverseNumber = ReverseNumber*10
-    ReverseNumber+=lastDigit
-    x = Math.floor(x/10)
-}
-    } else if (x<0) {
-        let x2 =String(x)
-        let x3 = x2.slice(1) 
-        let rn = ''
+// var reverse = function(x) {
+//     let ReverseNumber = 0;
+//     const INT_MAX = 2**31 - 1; 
+//     const INT_MIN = -(2**31);
+//     if (x>0) {
+//         while(x>0) {
+//     let lastDigit = x%10;
+//     ReverseNumber = ReverseNumber*10
+//     ReverseNumber+=lastDigit
+//     x = Math.floor(x/10)
+// }
+//     } else if (x<0) {
+//         let x2 =String(x)
+//         let x3 = x2.slice(1) 
+//         let rn = ''
      
-        while (x3>0) {
-            let lastDigit = x3%10 
+//         while (x3>0) {
+//             let lastDigit = x3%10 
             
-            rn=rn*10               
-            rn+=lastDigit;
-            x3 = Math.floor(x3/10) 
+//             rn=rn*10               
+//             rn+=lastDigit;
+//             x3 = Math.floor(x3/10) 
             
-        }
+//         }
 
-        ReverseNumber = rn*-1
+//         ReverseNumber = rn*-1
 
         
-    }
+//     }
     
-    //overflow
-    if (ReverseNumber>INT_MAX || ReverseNumber<INT_MIN) {
-        ReverseNumber = 0
-    }
-return ReverseNumber
-};
+//     //overflow
+//     if (ReverseNumber>INT_MAX || ReverseNumber<INT_MIN) {
+//         ReverseNumber = 0
+//     }
+// return ReverseNumber
+// };
 
-console.log(reverse(1534236469))
+// console.log(reverse(1534236469))
+
+
+
+
+//  PRINT ALL DIVISORS
+
+// function DIVISORS(x) {
+//     for (let i = 1; i <=x; i++) {
+//         if (x%i==0) {
+//             console.log(i)
+//         }
+        
+//     }
+// }
+
+// DIVISORS(36)
+
+// CHECK FOR PRIME
+
+// function IsPrimeNumber(n) {
+//     let count = 0;
+//     for (let i = 0; i*i <= n; i++) {
+//        if (n%i == 0) {
+//         count+=1
+//         if (n%i !==i) {
+//             count+=1
+//         }
+//        }
+//     }
+//     console.log(count)
+//     if (count==2) {
+//         console.log("prime")
+//     } else {
+//         console.log("not prime")
+//     }
+// }
+
+// IsPrimeNumber(36)
+
+
+
+//GCD/HCF
+// euclidian method => (bigvalue/smallvalue,smallvalue) do it until  either smallvalue or bigvalue become zero and the remaining value will be GCD  
+// **note if after dividing if small value become bigger and bigger become small then compare both value take the bigger and do the same process (bigvalue/smallvalue,smallvalue)
+
+// function GCD(a,b) {
+//     while (a>0 && b>0) {
+//         if (a>b) {
+//             a = a%b
+//         } else {
+//             b = b%a
+//         }   
+//     }
+
+//      if (a == 0) {
+//             return b
+//         } else {
+//             return a
+//         }
+// }
+
+// console.log(GCD(10,52))
