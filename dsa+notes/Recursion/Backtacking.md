@@ -12,4 +12,10 @@ syntax
 
     f(3,3)
 
-1) we call funtion before print statement because until the function return we will not print anyThing
+1) Backtracking means function go deep and at the time of returning it do the work
+
+    qoustions
+    *1) print 1 to n using Backtracking
+    *2) print n to 1 using Backtracking
+    *3) print the sum of first n numbers using function
+    *4) reverse an array (concept:Backtracking,pointers)
