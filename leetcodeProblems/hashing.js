@@ -62,7 +62,7 @@
 // console.log(map)
 
 
- 
+ // sort the people
 
 var sortPeople = function(names, heights) {
     
@@ -73,14 +73,16 @@ for (let i = 0; i < names.length; i++) {
     map.set(heights[i],names[i])
     
 }
-
+console.log(map,"map")
+console.log(names,"name")
 
 heights.sort((a,b )=>b-a)
-console.log(heights.sort(a,b =>b-a))
+console.log(heights,"height")
 for (let i = 0; i < heights.length; i++) {
    names[i] = map.get(heights[i])
-
+console.log(map.get(heights[i]))
 }
+return names
 };
 
 console.log(sortPeople(["Mary","John","Emma"],[180,165,170]))
