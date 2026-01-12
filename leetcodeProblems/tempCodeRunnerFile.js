@@ -1,1 +1,1 @@
-console.log(heights.sort((a,b) =>a-b))
+temp

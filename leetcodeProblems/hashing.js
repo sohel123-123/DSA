@@ -64,25 +64,90 @@
 
  // sort the people
 
-var sortPeople = function(names, heights) {
+// var sortPeople = function(names, heights) {
+    
+// let map = new Map();
+
+// for (let i = 0; i < names.length; i++) {
+//     map.set(heights[i],names[i])
+    
+// }
+// console.log(map,"map")
+// console.log(names,"name")
+
+// heights.sort((a,b )=>b-a)
+// console.log(heights,"height")
+// for (let i = 0; i < heights.length; i++) {
+//    names[i] = map.get(heights[i])
+// console.log(map.get(heights[i]))
+// }
+// return names
+// };
+
+// console.log(sortPeople(["Mary","John","Emma"],[180,165,170]))
+
+
+// // two sum bruetforce
+
+// var twoSum = function(nums, target) {
+//     let val = []
+
+//     let num1 = 0;
+//     for(let i = 0; i<nums.length; i++) {
+       
+//        for (let j = i+1; j < nums.length; j++) {
+//         if (nums[i]+nums[j]==target ) {
+//             val.push(i);
+//             val.push(j);
+//             return val
+//         }
+        
+//        }
+
+//     }
     
 
-let map = new Map();
+// };
+// console.log(twoSum([3,2,3],6));
 
-for (let i = 0; i < names.length; i++) {
-    map.set(heights[i],names[i])
+
+// intersection of two arrays bruetforce
+
+// var intersection = function(nums1, nums2) {
+//     let map = new Map();
+//     let temp = [];
+//     for (let i = 0; i < nums1.length; i++) {
+        
+//         for (let j = 0; j < nums2.length; j++) {
+//             if (nums1[i]==nums2[j]) {
+//                 if (temp.includes(nums1[i])) {
+//                     continue;
+//                 }
+//                 temp.push(nums1[i])
+//             }
+            
+//         }
+        
+//     }
+//     return temp
+// };
+
+// console.log(intersection([4,9,5],[9,4,9,8,4]))
+
+
+// intersection of two arrays using hashing
+
+var intersection = function(nums1, nums2) {
+    let set = new Set(nums1);
+    let ans = [];
+for (let i = 0; i < nums2.length; i++) {
+    if (set.has(nums2[i]) && !ans.includes(nums2[i])) {
+        ans.push(nums2[i])
+    }
     
 }
-console.log(map,"map")
-console.log(names,"name")
-
-heights.sort((a,b )=>b-a)
-console.log(heights,"height")
-for (let i = 0; i < heights.length; i++) {
-   names[i] = map.get(heights[i])
-console.log(map.get(heights[i]))
-}
-return names
+return ans
+    
 };
 
-console.log(sortPeople(["Mary","John","Emma"],[180,165,170]))
+console.log(intersection([1,2,2,1],[2,2]))
