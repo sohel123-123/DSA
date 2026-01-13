@@ -137,17 +137,44 @@
 
 // intersection of two arrays using hashing
 
-var intersection = function(nums1, nums2) {
-    let set = new Set(nums1);
-    let ans = [];
-for (let i = 0; i < nums2.length; i++) {
-    if (set.has(nums2[i]) && !ans.includes(nums2[i])) {
-        ans.push(nums2[i])
+// var intersection = function(nums1, nums2) {
+//     let set = new Set(nums1);
+//     let ans = [];
+// for (let i = 0; i < nums2.length; i++) {
+//     if (set.has(nums2[i]) && !ans.includes(nums2[i])) {
+//         ans.push(nums2[i])
+//     }
+    
+// }
+// return ans
+    
+// };
+
+// console.log(intersection([1,2,2,1],[2,2]))
+
+
+// intersection of two arrays-II using hashing
+
+var intersect = function(nums1, nums2) {
+    let map = new Map();
+    let temp = [];
+    for (let i = 0; i < nums1.length; i++) {
+        console.log(map.get(nums1[i]));
+        map.set(nums1[i],(map.get(nums1[i])|| 0)+1)
+        
     }
-    
-}
-return ans
-    
+
+   
+    for (let j = 0; j < nums2.length; j++) {
+
+        if (map.has(nums2[j]) && map.get(nums2[j])>0) {
+
+            temp.push(nums2[j])
+            map.set(nums2[j],map.get(nums2[j])-1)
+        }
+    }
+
+    return temp;
 };
 
-console.log(intersection([1,2,2,1],[2,2]))
+console.log(intersect([4,7,9,7,6,7],[5,0,0,6,1,6,2,2,4]))
