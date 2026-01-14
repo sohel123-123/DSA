@@ -4,7 +4,7 @@
 
 // for (let i = 0; i < arr.length; i++) {
 //     hash[arr[i]]+=1
-    
+
 // }
 // console.log(hash)
 
@@ -20,7 +20,7 @@
 //     } else {
 //         set.add(arr[i])
 //     }
-    
+
 // }
 
 // console.log(set)
@@ -56,21 +56,21 @@
 //     } else { 
 //         map.set(arr[i],1)
 //     }
-    
+
 // }
 
 // console.log(map)
 
 
- // sort the people
+// sort the people
 
 // var sortPeople = function(names, heights) {
-    
+
 // let map = new Map();
 
 // for (let i = 0; i < names.length; i++) {
 //     map.set(heights[i],names[i])
-    
+
 // }
 // console.log(map,"map")
 // console.log(names,"name")
@@ -94,18 +94,18 @@
 
 //     let num1 = 0;
 //     for(let i = 0; i<nums.length; i++) {
-       
+
 //        for (let j = i+1; j < nums.length; j++) {
 //         if (nums[i]+nums[j]==target ) {
 //             val.push(i);
 //             val.push(j);
 //             return val
 //         }
-        
+
 //        }
 
 //     }
-    
+
 
 // };
 // console.log(twoSum([3,2,3],6));
@@ -117,7 +117,7 @@
 //     let map = new Map();
 //     let temp = [];
 //     for (let i = 0; i < nums1.length; i++) {
-        
+
 //         for (let j = 0; j < nums2.length; j++) {
 //             if (nums1[i]==nums2[j]) {
 //                 if (temp.includes(nums1[i])) {
@@ -125,9 +125,9 @@
 //                 }
 //                 temp.push(nums1[i])
 //             }
-            
+
 //         }
-        
+
 //     }
 //     return temp
 // };
@@ -144,10 +144,10 @@
 //     if (set.has(nums2[i]) && !ans.includes(nums2[i])) {
 //         ans.push(nums2[i])
 //     }
-    
+
 // }
 // return ans
-    
+
 // };
 
 // console.log(intersection([1,2,2,1],[2,2]))
@@ -155,26 +155,83 @@
 
 // intersection of two arrays-II using hashing
 
-var intersect = function(nums1, nums2) {
+// var intersect = function(nums1, nums2) {
+//     let map = new Map();
+//     let temp = [];
+//     for (let i = 0; i < nums1.length; i++) {
+//         console.log(map.get(nums1[i]));
+//         map.set(nums1[i],(map.get(nums1[i])|| 0)+1)
+
+//     }
+
+
+//     for (let j = 0; j < nums2.length; j++) {
+
+//         if (map.has(nums2[j]) && map.get(nums2[j])>0) {
+
+//             temp.push(nums2[j])
+//             map.set(nums2[j],map.get(nums2[j])-1)
+//         }
+//     }
+
+//     return temp;
+// };
+
+// console.log(intersect([4,7,9,7,6,7],[5,0,0,6,1,6,2,2,4]))
+
+
+
+
+// Subarray sum equal to K bruetForce
+
+// function subarray(arr,k) {
+//     let output = 0;
+
+//     for (let i = 0; i <arr.length; i++) {
+//         let sum = 0;
+//         for (let j = i; j < arr.length; j++) {
+//             sum+=arr[j]
+//             if (sum==k) {
+//                 output+=1;
+
+//             }
+
+//         }
+
+//     }
+//     return output
+// }
+
+// console.log(subarray([1,2,3],k=3),"output")
+
+
+
+// Subarray sum equal to K using hashing
+
+var subarraySum = function (nums, k) {
+    let sum = 0;
+    let count = 0;
     let map = new Map();
-    let temp = [];
-    for (let i = 0; i < nums1.length; i++) {
-        console.log(map.get(nums1[i]));
-        map.set(nums1[i],(map.get(nums1[i])|| 0)+1)
-        
-    }
+    map.set(sum, 0)
+    for (let i = 0; i < nums.length; i++) {
+        sum += nums[i];               // step 1] add the value into the sum
 
-   
-    for (let j = 0; j < nums2.length; j++) {
-
-        if (map.has(nums2[j]) && map.get(nums2[j])>0) {
-
-            temp.push(nums2[j])
-            map.set(nums2[j],map.get(nums2[j])-1)
+        if (map.has(sum-k)) {        // step 2] check if ( sum-k ) exist in the map or not if exist then add the frequency
+            count+=map.get(sum-k)    // of the key into count
         }
-    }
 
-    return temp;
+        if (map.has(sum)) {          // step 3] if sum exist in the map then increase the frequency by one and if not exist
+            map.set(sum, map.get(sum)+ 1)     // then set it with 1
+        }  
+
+        else {
+            map.set(sum,1)
+        } 
+
+    };
+    return count;
 };
 
-console.log(intersect([4,7,9,7,6,7],[5,0,0,6,1,6,2,2,4]))
+console.log(subarraySum([1],k=0),"output")
+
+
