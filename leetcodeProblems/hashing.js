@@ -113,13 +113,13 @@
 
 // intersection of two arrays bruetforce
 
-// var intersection = function(nums1, nums2) {
+// var intersection = function(nums1, nums) {
 //     let map = new Map();
 //     let temp = [];
 //     for (let i = 0; i < nums1.length; i++) {
 
-//         for (let j = 0; j < nums2.length; j++) {
-//             if (nums1[i]==nums2[j]) {
+//         for (let j = 0; j < nums.length; j++) {
+//             if (nums1[i]==nums[j]) {
 //                 if (temp.includes(nums1[i])) {
 //                     continue;
 //                 }
@@ -137,12 +137,12 @@
 
 // intersection of two arrays using hashing
 
-// var intersection = function(nums1, nums2) {
+// var intersection = function(nums1, nums) {
 //     let set = new Set(nums1);
 //     let ans = [];
-// for (let i = 0; i < nums2.length; i++) {
-//     if (set.has(nums2[i]) && !ans.includes(nums2[i])) {
-//         ans.push(nums2[i])
+// for (let i = 0; i < nums.length; i++) {
+//     if (set.has(nums[i]) && !ans.includes(nums[i])) {
+//         ans.push(nums[i])
 //     }
 
 // }
@@ -155,7 +155,7 @@
 
 // intersection of two arrays-II using hashing
 
-// var intersect = function(nums1, nums2) {
+// var intersect = function(nums1, nums) {
 //     let map = new Map();
 //     let temp = [];
 //     for (let i = 0; i < nums1.length; i++) {
@@ -165,12 +165,12 @@
 //     }
 
 
-//     for (let j = 0; j < nums2.length; j++) {
+//     for (let j = 0; j < nums.length; j++) {
 
-//         if (map.has(nums2[j]) && map.get(nums2[j])>0) {
+//         if (map.has(nums[j]) && map.get(nums[j])>0) {
 
-//             temp.push(nums2[j])
-//             map.set(nums2[j],map.get(nums2[j])-1)
+//             temp.push(nums[j])
+//             map.set(nums[j],map.get(nums[j])-1)
 //         }
 //     }
 
@@ -208,30 +208,107 @@
 
 // Subarray sum equal to K using hashing
 
-var subarraySum = function (nums, k) {
-    let sum = 0;
-    let count = 0;
-    let map = new Map();
-    map.set(sum, 0)
-    for (let i = 0; i < nums.length; i++) {
-        sum += nums[i];               // step 1] add the value into the sum
+// var subarraySum = function (nums, k) {
+//     let sum = 0;
+//     let count = 0;
+//     let map = new Map();
+//     map.set(sum, 0)
+//     for (let i = 0; i < nums.length; i++) {
+//         sum += nums[i];               // step 1] add the value into the sum
 
-        if (map.has(sum-k)) {        // step 2] check if ( sum-k ) exist in the map or not if exist then add the frequency
-            count+=map.get(sum-k)    // of the key into count
+//         if (map.has(sum-k)) {        // step 2] check if ( sum-k ) exist in the map or not if exist then add the frequency
+//             count+=map.get(sum-k)    // of the key into count
+//         }
+
+//         if (map.has(sum)) {          // step 3] if sum exist in the map then increase the frequency by one and if not exist
+//             map.set(sum, map.get(sum)+ 1)     // then set it with 1
+//         }  
+
+//         else {
+//             map.set(sum,1)
+//         } 
+
+//     };
+//     return count;
+// };
+
+// console.log(subarraySum([1],k=0),"output")
+
+
+// gfg problem difficulty medium
+
+// function subarryK(array,k) {
+//     let map = new Map();
+//     let sum = 0;
+//     let longest = 0;
+//     map.set(sum,-1)
+//     for (let i = 0; i < array.length; i++) {
+//         sum+=array[i];
+//         if (map.has(sum-k)) {
+//             let subArrLength = i-map.get(sum-k) 
+//             if (subArrLength>longest) {
+//                 longest=subArrLength
+//             }
+//         }
+
+//         if (!map.has(sum)) {
+//             map.set(sum,i)
+//         }
+        
+//     }
+//     return longest;
+// }
+
+// console.log(subarryK([-5, 8, -14, 2, 4, 12],-5))
+
+//  Longest Consecutive Sequence *bruetForce *medium
+
+// var longestConsecutive = function(nums) {
+//     let longest = 0;
+//     let count =1
+//     let nums =nums.sort((a,b) => a-b)
+//     for (let i = 1; i < nums.length; i++) {
+//         if (nums[i] == nums[i-1]) {
+//             continue;
+//         }
+//         else if (nums[i]==nums[i-1]+1) {
+//             count++;
+//         } else { 
+//         longest = Math.max(count,longest)
+//         count =1;
+//         }
+//     }
+//     longest = Math.max(longest, count);
+
+//   return longest
+// };
+
+// console.log(longestConsecutive([0,3,7,2,5,8,4,6,0,1]))
+
+
+
+//  Longest Consecutive Sequence *set *medium
+
+var longestConsecutive = function(nums) {
+    if(nums.length<1) return 0;
+    let longest = 0;
+    let count =1
+    let set = new Set(nums)
+    for (let a of set) {
+        if (!set.has(a-1)) {
+            let val = a
+            while (set.has(val+count)) {
+                count++
+            }
+            longest = Math.max(longest,count)
+            count = 1;
+        } else {
+            continue
         }
-
-        if (map.has(sum)) {          // step 3] if sum exist in the map then increase the frequency by one and if not exist
-            map.set(sum, map.get(sum)+ 1)     // then set it with 1
-        }  
-
-        else {
-            map.set(sum,1)
-        } 
-
-    };
-    return count;
+     
+    }
+console.log(set)
+  return longest
 };
 
-console.log(subarraySum([1],k=0),"output")
-
-
+console.log(longestConsecutive([100,4,200,1,3,2]))
