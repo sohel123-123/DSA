@@ -289,26 +289,26 @@
 
 //  Longest Consecutive Sequence *set *medium
 
-var longestConsecutive = function(nums) {
-    if(nums.length<1) return 0;
-    let longest = 0;
-    let count =1
-    let set = new Set(nums)
-    for (let a of set) {
-        if (!set.has(a-1)) {
-            let val = a
-            while (set.has(val+count)) {
-                count++
-            }
-            longest = Math.max(longest,count)
-            count = 1;
-        } else {
-            continue
-        }
+// var longestConsecutive = function(nums) {
+//     if(nums.length<1) return 0;
+//     let longest = 0;
+//     let count =1
+//     let set = new Set(nums)
+//     for (let a of set) {
+//         if (!set.has(a-1)) {
+//             let val = a
+//             while (set.has(val+count)) {
+//                 count++
+//             }
+//             longest = Math.max(longest,count)
+//             count = 1;
+//         } else {
+//             continue
+//         }
      
-    }
-console.log(set)
-  return longest
-};
+//     }
+// console.log(set)
+//   return longest
+// };
 
-console.log(longestConsecutive([100,4,200,1,3,2]))
+// console.log(longestConsecutive([100,4,200,1,3,2]))
