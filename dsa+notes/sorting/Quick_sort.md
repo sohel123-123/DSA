@@ -1,8 +1,14 @@
+Select a pivot element from the array (commonly the last element, but can be first, middle, or random).
 
-a] 1st element in the array
-b] last element in the array
-c] median of the array
-d] random element of the array
+Rearrange the elements in the array such that all elements smaller than the pivot are placed before it and all greater elements are placed after it (this step is called partitioning).
+
+After partitioning, the pivot is in its correct sorted position.
+
+Recursively apply the same process to the subarrays on the left and right of the pivot.
+
+Base condition for recursion is when the subarray has zero or one element, as it's already sorted.
+
+Combine the results of the recursive calls to obtain the fully sorted array.
 
 
 1] pick a pivat & plase it in its correct place in the counted array

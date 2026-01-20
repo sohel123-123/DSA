@@ -109,39 +109,82 @@
 function qs(arr,low,high) {
     if (low<high) {
         let parIndex = parIndeX(arr,low,high)
-        console.log(parIndex,"parindex")
+        // console.log(parIndex,"parindex")
         qs(arr,low,parIndex-1)
         qs(arr,parIndex+1,high)
     }
-    return arr
+    
 }
 
-function parIndeX(arr,low,high) {
-    let pivot = arr[low]
-    let i = low;
-    let j = arr.length;
+// quick sort strivers
 
-    while (i<j) {
-        
-    while (arr[i] <= pivot && i <= high-1) {
-        i++;
+// function parIndeX(arr,low,high) {
+//     let pivot = arr[high]
+//     let i = low-1;
+// console.log(low,"low")
+//     //traverse array
+//     for (let j = low; j < high; j++) {
+//         //if current element <= pivot
+//         if (arr[j]<=pivot) {
+//             //move i and swap
+//             i++;
+//             [arr[i],arr[j]] = [arr[j],arr[i]];
+//         }
+//         console.log(arr[i],'i')
+//         console.log(arr[j],'j')
+//     }
+//     //place pivot at correct position
+//     [arr[i+1],arr[high]] = [arr[high],arr[i+1]];
+
+//     //return pivot index
+//     return i+1;
+
+// }
+
+// let arr = [3,1,2,4,1,5,6,2,4]
+// qs(arr,0,arr.length-1)
+// console.log(arr.join(" "))
+
+function quich_sort(arr,first,last) {
+    if (first<last) {
+        let parIndeX = findpivotIndex(arr,first,last);
+        quich_sort(arr,first,parIndeX-1)
+        quich_sort(arr,parIndeX+1,last)
     }
 
-    while (arr[j] > pivot && arr[j] >= low + 1) {
-        j--;
-    }
-    if (i<j) {
-        let temp= arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp
-    }
-    }
-    let Temp = arr[low];
-    arr[low] = arr[j];
-    arr[j] = Temp;
-console.log(arr[j])
-    return j
 }
 
-let arr = [3,1,2,4,1,5,6,2,4]
-console.log(qs(arr,0,arr.length))
+
+// Quick sort by sherians
+
+// function findpivotIndex(arr,first,last) {
+//     let pivot = arr[first];
+//     let i = first+1;
+//     let j = last;
+//     while (i<=j) {
+//         while (arr[i]<=pivot && i<=last) {
+            
+//             i++
+//         }
+
+//         while (arr[j]>pivot && j>=first) {
+//             j--
+//         }
+// if (i<j) {
+//     swap(arr,i,j)
+// }
+//     }
+//     swap(arr,first,j)
+//     return j
+// }
+
+// function swap(arr, i, j) 
+// { 
+//         let temp = arr[i];
+//       arr[i] = arr[j];
+//       arr[j] = temp; 
+//     }
+
+// let arr = [3,1,2,4,1,5,6,2,4]
+//  quich_sort(arr,0,arr.length-1)
+//  console.log(arr)
