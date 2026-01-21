@@ -106,15 +106,15 @@
 
 //Quick sort
 
-function qs(arr,low,high) {
-    if (low<high) {
-        let parIndex = parIndeX(arr,low,high)
-        // console.log(parIndex,"parindex")
-        qs(arr,low,parIndex-1)
-        qs(arr,parIndex+1,high)
-    }
+// function qs(arr,low,high) {
+//     if (low<high) {
+//         let parIndex = parIndeX(arr,low,high)
+//         // console.log(parIndex,"parindex")
+//         qs(arr,low,parIndex-1)
+//         qs(arr,parIndex+1,high)
+//     }
     
-}
+// }
 
 // quick sort strivers
 
@@ -145,14 +145,14 @@ function qs(arr,low,high) {
 // qs(arr,0,arr.length-1)
 // console.log(arr.join(" "))
 
-function quich_sort(arr,first,last) {
-    if (first<last) {
-        let parIndeX = findpivotIndex(arr,first,last);
-        quich_sort(arr,first,parIndeX-1)
-        quich_sort(arr,parIndeX+1,last)
-    }
+// function quich_sort(arr,first,last) {
+//     if (first<last) {
+//         let parIndeX = findpivotIndex(arr,first,last);
+//         quich_sort(arr,first,parIndeX-1)
+//         quich_sort(arr,parIndeX+1,last)
+//     }
 
-}
+// }
 
 
 // Quick sort by sherians
