@@ -1,7 +1,11 @@
 In each iteration, select an element from the unsorted part of the array using an outer loop.
+
 Place this selected element in its correct position within the sorted part of the array.
+
 Use an inner loop to shift the remaining elements, if necessary, to accommodate the selected element.
+
  This involves shifting elements by one position until the selected element can be placed in the correct position.
+ 
 Continue this process until the entire array is sorted.
 
 class Solution {
